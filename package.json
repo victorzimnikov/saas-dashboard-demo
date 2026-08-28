@@ -1,0 +1,30 @@
+{
+  "name": "saas-dashboard-workspace",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.6.4",
+  "scripts": {
+    "dev": "pnpm --filter @saas-dashboard/vue dev",
+    "dev:vue": "pnpm --filter @saas-dashboard/vue dev",
+    "build": "pnpm -r --if-present run build",
+    "build:vue": "pnpm --filter @saas-dashboard/vue build",
+    "preview:vue": "pnpm --filter @saas-dashboard/vue preview",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "typecheck": "pnpm -r --if-present run typecheck",
+    "ci": "pnpm format:check && pnpm lint && pnpm typecheck"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.9.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.10.0",
+    "globals": "^17.11.0",
+    "prettier": "3.9.6",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.68.0",
+    "vue-eslint-parser": "^10.4.1"
+  }
+}

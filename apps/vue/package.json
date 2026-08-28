@@ -1,0 +1,42 @@
+{
+  "name": "@saas-dashboard/vue",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "typecheck": "vue-tsc -b",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.102.5",
+    "@vee-validate/zod": "^4.15.1",
+    "axios": "^1.20.0",
+    "msw": "^2.15.0",
+    "p-queue": "^9.3.3",
+    "path-params": "^0.1.0",
+    "pinia": "^4.0.3",
+    "qs": "^6.15.3",
+    "radash": "^12.1.1",
+    "vee-validate": "^4.15.1",
+    "vue": "^3.5.41",
+    "vue-router": "^5.2.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/qs": "^6.15.1",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/tsconfig": "^0.9.1",
+    "sass-embedded": "^1.103.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.2",
+    "vue-tsc": "^3.3.11"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}
