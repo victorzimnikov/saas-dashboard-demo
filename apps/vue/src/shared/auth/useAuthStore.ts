@@ -1,4 +1,5 @@
-import { QueryError, authFetcher, Urls, type SuccessResponse } from "@/queries";
+import { QueryError, authFetcher, Urls } from "../queries";
+import type { SuccessResponse } from "../queries";
 import { defineStore } from "pinia";
 import {
   loginBodySchema,
@@ -6,14 +7,11 @@ import {
   refreshTokenBodySchema,
   refreshTokenResponseSchema,
   registerBodySchema,
-  type LoginBody,
-  type LoginResponse,
-  type RefreshTokenResponse,
-  type RegisterBody,
 } from "./auth.schema";
-import { decodeJwt, isTokenExpired, tryJsonParse, tryJsonStringify } from "@/utils";
-import { useProfileStore } from "@/profile";
-import { localStorage } from "@/storage";
+import type { LoginBody, LoginResponse, RefreshTokenResponse, RegisterBody } from "./auth.schema";
+import { decodeJwt, isTokenExpired, tryJsonParse, tryJsonStringify } from "../utils";
+import { useProfileStore } from "../profile";
+import { localStorage } from "../storage";
 
 const STORE_NAME = "AUTH";
 const REFRESH_BUFFER_SECONDS = 10 * 60;
@@ -49,6 +47,7 @@ type Actions = {
   resetTokens: () => void;
   initializeSession: () => Promise<void>;
   ensureSessionLoaded: () => Promise<void>;
+  logout: () => void;
 };
 
 export const useAuthStore = defineStore<typeof STORE_NAME, State, Getters, Actions>(STORE_NAME, {
@@ -136,9 +135,9 @@ export const useAuthStore = defineStore<typeof STORE_NAME, State, Getters, Actio
           },
         );
 
-        const userStore = useProfileStore();
-
         const loginResult = response.data.data;
+
+        const userStore = useProfileStore();
 
         userStore.setUser(loginResult.user);
         this.setTokens(loginResult.accessToken, loginResult.refreshToken);
@@ -220,6 +219,9 @@ export const useAuthStore = defineStore<typeof STORE_NAME, State, Getters, Actio
 
         const tokens = response.data.data;
 
+        const userStore = useProfileStore();
+
+        userStore.setUser(tokens.user);
         this.setTokens(tokens.accessToken, tokens.refreshToken);
 
         return tokens.accessToken;
@@ -245,6 +247,13 @@ export const useAuthStore = defineStore<typeof STORE_NAME, State, Getters, Actio
       this.status = "unauthenticated";
 
       localStorage.removeItem("demo/vuejs/tokens");
+    },
+    logout() {
+      const userStore = useProfileStore();
+
+      this.resetTokens();
+
+      userStore.clearUser();
     },
   },
 });

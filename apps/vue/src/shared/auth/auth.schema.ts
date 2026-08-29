@@ -27,6 +27,7 @@ export const refreshTokenBodySchema = z.object({
 export const refreshTokenResponseSchema = z.object({
   accessToken: z.string(),
   refreshToken: z.string(),
+  user: z.any(),
 });
 
 export type LoginBody = z.infer<typeof loginBodySchema>;

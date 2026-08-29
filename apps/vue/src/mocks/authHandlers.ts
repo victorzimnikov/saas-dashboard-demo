@@ -162,6 +162,7 @@ export const authHandlers = [
           data: {
             accessToken,
             refreshToken,
+            user: omit(user, ["password", "username"]),
           },
         });
       } catch (e) {

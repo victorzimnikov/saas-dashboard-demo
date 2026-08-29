@@ -5,4 +5,5 @@ export const ColorPalette = {
   Black: "#000000",
   Primary: "#605bff",
   Secondary: "#fafafb",
+  PinkLight: "#ffc7d4",
 };

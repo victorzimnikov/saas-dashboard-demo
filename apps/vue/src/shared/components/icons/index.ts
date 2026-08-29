@@ -6,14 +6,30 @@ import AppIcon from "./AppIcon.vue";
 import GoogleLogoIcon from "./GoogleLogoIcon.vue";
 import FacebookLogoIcon from "./FacebookLogoIcon.vue";
 import CheckIcon from "./CheckIcon.vue";
+import ChevronIcon from "./ChevronIcon.vue";
+import TicketIcon from "./TicketIcon.vue";
+import ScheduleIcon from "./ScheduleIcon.vue";
+import CalendarIcon from "./CalendarIcon.vue";
+import MessagesIcon from "./MessagesIcon.vue";
+import NotificationIcon from "./NotificationIcon.vue";
+import GearIcon from "./GearIcon.vue";
+import LogoutIcon from "./LogoutIcon.vue";
 
 export {
-  CategoryIcon,
-  ChartIcon,
-  EyeOpenIcon,
-  EyeCloseIcon,
   AppIcon,
+  GearIcon,
   CheckIcon,
+  ChartIcon,
+  LogoutIcon,
+  TicketIcon,
+  EyeOpenIcon,
+  ChevronIcon,
+  CategoryIcon,
+  EyeCloseIcon,
+  ScheduleIcon,
+  CalendarIcon,
+  MessagesIcon,
   GoogleLogoIcon,
+  NotificationIcon,
   FacebookLogoIcon,
 };

@@ -9,10 +9,12 @@ type State = {
 
 type Getters = {
   getUserRole: () => UserRole | null;
+  userFullName: () => string;
 };
 
 type Actions = {
   setUser: (user: User) => void;
+  clearUser: () => void;
 };
 
 export const useProfileStore = defineStore<typeof STORE_NAME, State, Getters, Actions>(STORE_NAME, {
@@ -23,10 +25,16 @@ export const useProfileStore = defineStore<typeof STORE_NAME, State, Getters, Ac
     getUserRole() {
       return this.user?.role ?? null;
     },
+    userFullName() {
+      return this.user?.fullName ?? "";
+    },
   },
   actions: {
     setUser(user) {
       this.user = user;
+    },
+    clearUser() {
+      this.user = null;
     },
   },
 });

@@ -45,6 +45,20 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/analytics': RouteRecordInfo<
+      '/analytics',
+      '/analytics',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/calendar': RouteRecordInfo<
+      '/calendar',
+      '/calendar',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/dashboard': RouteRecordInfo<
       '/dashboard',
       '/dashboard',
@@ -59,9 +73,44 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/invoice': RouteRecordInfo<
+      '/invoice',
+      '/invoice',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/messages': RouteRecordInfo<
+      '/messages',
+      '/messages',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/notification': RouteRecordInfo<
+      '/notification',
+      '/notification',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/reset-password': RouteRecordInfo<
       '/reset-password',
       '/reset-password',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/schedule': RouteRecordInfo<
+      '/schedule',
+      '/schedule',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/settings': RouteRecordInfo<
+      '/settings',
+      '/settings',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -102,6 +151,22 @@ declare module 'vue-router/auto-routes' {
       pathParamNames:
         | never
     }
+    'src/pages/analytics.vue': {
+      routes:
+        | '/analytics'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/calendar.vue': {
+      routes:
+        | '/calendar'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
     'src/pages/dashboard.vue': {
       routes:
         | '/dashboard'
@@ -118,9 +183,49 @@ declare module 'vue-router/auto-routes' {
       pathParamNames:
         | never
     }
+    'src/pages/invoice.vue': {
+      routes:
+        | '/invoice'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/messages.vue': {
+      routes:
+        | '/messages'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/notification.vue': {
+      routes:
+        | '/notification'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
     'src/pages/reset-password.vue': {
       routes:
         | '/reset-password'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/schedule.vue': {
+      routes:
+        | '/schedule'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/settings.vue': {
+      routes:
+        | '/settings'
       views:
         | never
       pathParamNames:

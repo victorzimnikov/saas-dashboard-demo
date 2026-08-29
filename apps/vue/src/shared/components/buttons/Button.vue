@@ -33,6 +33,7 @@ const progressColor = variant === "primary" ? ColorPalette.White : ColorPalette.
 .button {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 14px;
   min-height: 50px;
   border-radius: 10px;
