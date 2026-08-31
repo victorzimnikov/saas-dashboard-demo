@@ -1,6 +1,5 @@
 import type { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
-import { API_HOST } from "@/constants";
 
 type AuthAdapter = {
   getAccessToken: () => string | null;
@@ -21,7 +20,6 @@ export const configureApiClient = (adapter: AuthAdapter): void => {
 };
 
 const apiClient: AxiosInstance = axios.create({
-  baseURL: API_HOST,
   withCredentials: true,
 });
 

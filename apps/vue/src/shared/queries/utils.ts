@@ -1,10 +1,8 @@
 import type { Pagination } from "./types/common.schema";
-import { API_HOST } from "@/constants";
 import { create } from "axios";
 import type { AxiosInstance } from "axios";
 
 export const rawClient: AxiosInstance = create({
-  baseURL: API_HOST,
   withCredentials: true,
 });
 
