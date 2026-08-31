@@ -1,6 +1,6 @@
 import type { UserWithCredentials } from "@/types";
 
-export const USERS: UserWithCredentials[] = [
+export const createUsersMock = (): UserWithCredentials[] => [
   {
     id: "1",
     fullName: "Admin Adminov",

@@ -5,5 +5,10 @@ export const ColorPalette = {
   Black: "#000000",
   Primary: "#605bff",
   Secondary: "#fafafb",
+  Red: "#ff6a77",
+  Blue: "#5b93ff",
+  CyanBlue: "#26c0e2",
+  Orange: "#ff8f6b",
+  Yellow: "#ffc327",
   PinkLight: "#ffc7d4",
-};
+} as const;

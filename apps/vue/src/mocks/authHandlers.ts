@@ -1,5 +1,5 @@
 import { delay, http, HttpResponse } from "msw";
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY, USERS } from "@/constants";
+import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "./constants";
 import {
   checkJwt,
   createJwt,
@@ -19,9 +19,12 @@ import type {
 import { omit } from "radash";
 import { sessionStorage } from "@/storage";
 import { getTemporaryUsers } from "./helpers";
+import { createUsersMock } from "./data";
 
 const ACCESS_TOKEN_TIME = 3600;
 const REFRESH_TOKEN_TIME = 2419200;
+
+const users = createUsersMock();
 
 export const authHandlers = [
   http.post<object, LoginBody, SuccessResponse<LoginResponse> | ErrorResponse>(
@@ -32,7 +35,7 @@ export const authHandlers = [
 
         const body = await request.json();
 
-        let user = USERS.find((user) => user.email === body?.email);
+        let user = users.find((user) => user.email === body?.email);
 
         if (!user) {
           const temporaryUsers = getTemporaryUsers();
@@ -146,7 +149,7 @@ export const authHandlers = [
 
         const { sub, role } = decodeJwt(body.refreshToken);
 
-        const user = USERS.find((user) => user.id === sub);
+        const user = users.find((user) => user.id === sub);
 
         if (!user) {
           return HttpResponse.json({ error: "Пользователь не найден" }, { status: 400 });
