@@ -28,5 +28,5 @@ export { Input, PasswordInput } from "./inputs";
 export { Checkbox, DatePicker } from "./controls";
 export { Link, Price } from "./text";
 export { ButtonBase, Button, MenuButton } from "./buttons";
-export { CircularProgress, Divider, Rating } from "./common";
+export { CircularProgress, Divider, Rating, Placeholder } from "./common";
 export { AppLayout, useAppLayout } from "./app";

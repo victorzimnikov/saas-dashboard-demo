@@ -8,11 +8,17 @@ import {
   DashboardAnalytics,
   TopSellingProducts,
 } from "../components";
+import { useDashboardStatsQuery } from "../api";
+import { computed } from "vue";
 
 useAppLayout({
   title: "Dashboard",
   withHorizontalScroll: true,
 });
+
+const { data, isFetching } = useDashboardStatsQuery();
+
+const isLoading = computed(() => !data.value?.data && isFetching.value);
 </script>
 
 <template>
@@ -21,10 +27,34 @@ useAppLayout({
   </Teleport>
 
   <div class="dashboard-page">
-    <section class="card stat stat-1"><StatCard type="save-products" :count="178" /></section>
-    <section class="card stat stat-2"><StatCard type="stock-products" :count="20" /></section>
-    <section class="card stat stat-3"><StatCard type="sales-products" :count="190" /></section>
-    <section class="card stat stat-4"><StatCard type="job-application" :count="12" /></section>
+    <section class="card stat stat-1">
+      <StatCard
+        type="save-products"
+        :is-loading="isLoading"
+        :count="data?.data.saveProducts ?? 0"
+      />
+    </section>
+    <section class="card stat stat-2">
+      <StatCard
+        type="stock-products"
+        :is-loading="isLoading"
+        :count="data?.data.stockProducts ?? 0"
+      />
+    </section>
+    <section class="card stat stat-3">
+      <StatCard
+        type="sales-products"
+        :is-loading="isLoading"
+        :count="data?.data.salesProducts ?? 0"
+      />
+    </section>
+    <section class="card stat stat-4">
+      <StatCard
+        type="job-application"
+        :is-loading="isLoading"
+        :count="data?.data.jobApplication ?? 0"
+      />
+    </section>
 
     <section class="card reports"><DashboardReports /></section>
     <section class="card analytics"><DashboardAnalytics /></section>

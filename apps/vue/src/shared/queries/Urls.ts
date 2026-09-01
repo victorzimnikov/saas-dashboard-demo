@@ -11,6 +11,9 @@ export const Urls = {
   // Products
   topSellingProducts: () => createUrl("products/top-selling", { host: API_HOST }),
 
+  // Dashboard
+  dashboardStats: () => createUrl("dashboard/stats", { host: API_HOST }),
+
   // Orders
   recentOrders: (query?: RecentOrdersRequest) =>
     createUrl("orders/recent-orders", { host: API_HOST, query }),

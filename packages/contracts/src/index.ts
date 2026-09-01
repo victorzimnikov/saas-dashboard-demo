@@ -7,6 +7,8 @@ export type { Product, TopSellingProductsResponse } from "./product.schema";
 export type { ErrorResponse, SuccessResponse } from "./common.types";
 export { userRoleSchema, userSchema, userWithCredentialsSchema } from "./user.schema";
 export type { User, UserRole, UserWithCredentials } from "./user.schema";
+export { dashboardStatsResponseSchema, dashboardStatsSchema } from "./dashboard.schema";
+export type { DashboardStats, DashboardStatsResponse } from "./dashboard.schema";
 export {
   loginBodySchema,
   loginResponseSchema,

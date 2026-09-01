@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { HeartIcon, GameIcon, BagIcon, WorkIcon } from "@/components";
+import { HeartIcon, GameIcon, BagIcon, WorkIcon, Placeholder } from "@/components";
 
 type Props = {
   type: "save-products" | "stock-products" | "sales-products" | "job-application";
   count: number;
+  isLoading?: boolean;
 };
 
-const { type, count } = defineProps<Props>();
+const { type, count, isLoading = false } = defineProps<Props>();
 
 const getName = (t: Props["type"]): string => {
   switch (t) {
@@ -35,7 +36,8 @@ const getName = (t: Props["type"]): string => {
     </div>
 
     <div class="content">
-      <span class="title">{{ count }}+</span>
+      <Placeholder v-if="isLoading" :height="30" :width="50" />
+      <span v-else class="count">{{ count }}+</span>
       <span class="name">{{ getName(type) }}</span>
     </div>
   </div>
@@ -83,7 +85,7 @@ const getName = (t: Props["type"]): string => {
     justify-content: center;
     gap: 1px;
 
-    & > .title {
+    & > .count {
       font-size: 22px;
       line-height: 30px;
       font-weight: 800;
