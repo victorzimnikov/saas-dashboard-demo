@@ -1,12 +1,12 @@
 import { useAuthStore } from "@/auth";
 import { useProfileStore } from "@/profile";
 import type { Pinia } from "pinia";
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import { routes } from "vue-router/auto-routes";
 
 export const createAppRouter = (pinia: Pinia) => {
   const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory(import.meta.env.BASE_URL),
     routes,
   });
 
