@@ -3,8 +3,12 @@ import VueRouter from "vue-router/vite";
 import { defineConfig } from "vite";
 // import { readFileSync } from "node:fs";
 
+const IS_DEV = process.env.NODE_ENV !== "production";
+
 // https://vite.dev/config/
 export default defineConfig({
+  base: IS_DEV ? undefined : "/saas-dashboard-demo/vue/",
+
   resolve: {
     tsconfigPaths: true,
   },

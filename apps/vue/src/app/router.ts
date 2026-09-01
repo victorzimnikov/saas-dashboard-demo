@@ -6,7 +6,7 @@ import { routes } from "vue-router/auto-routes";
 
 export const createAppRouter = (pinia: Pinia) => {
   const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes,
   });
 
