@@ -125,15 +125,12 @@ export const useAuthStore = defineStore<typeof STORE_NAME, State, Getters, Actio
     },
     async login(data) {
       try {
-        const response = await authFetcher<SuccessResponse<LoginResponse>, LoginBody>(
-          Urls.login(),
-          {
-            method: "POST",
-            data,
-            requestSchema: loginBodySchema,
-            responseSchema: loginResponseSchema,
-          },
-        );
+        const response = await authFetcher<LoginResponse, LoginBody>(Urls.login(), {
+          method: "POST",
+          data,
+          requestSchema: loginBodySchema,
+          responseSchema: loginResponseSchema,
+        });
 
         const loginResult = response.data.data;
 
@@ -207,15 +204,12 @@ export const useAuthStore = defineStore<typeof STORE_NAME, State, Getters, Actio
       }
 
       try {
-        const response = await authFetcher<SuccessResponse<RefreshTokenResponse>>(
-          Urls.refreshToken(),
-          {
-            data: { refreshToken: this.refreshToken },
-            method: "POST",
-            requestSchema: refreshTokenBodySchema,
-            responseSchema: refreshTokenResponseSchema,
-          },
-        );
+        const response = await authFetcher<RefreshTokenResponse>(Urls.refreshToken(), {
+          data: { refreshToken: this.refreshToken },
+          method: "POST",
+          requestSchema: refreshTokenBodySchema,
+          responseSchema: refreshTokenResponseSchema,
+        });
 
         const tokens = response.data.data;
 

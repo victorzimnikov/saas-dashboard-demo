@@ -1,3 +1,4 @@
 import Checkbox from "./Checkbox.vue";
+import DatePicker from "./DatePicker.vue";
 
-export { Checkbox };
+export { Checkbox, DatePicker };

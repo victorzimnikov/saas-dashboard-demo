@@ -2,6 +2,8 @@ import { inject, onMounted, type InjectionKey } from "vue";
 
 type AppLayoutOptions = {
   title?: string;
+  withHorizontalScroll?: boolean;
+  withVerticalScroll?: boolean;
 };
 
 type AppLayoutContext = {

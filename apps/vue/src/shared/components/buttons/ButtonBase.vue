@@ -8,6 +8,7 @@
   outline: none;
   border: none;
   background: none;
+  text-align: unset;
   cursor: pointer;
 }
 </style>

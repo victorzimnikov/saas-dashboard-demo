@@ -5,6 +5,7 @@ export const ColorPalette = {
   Black: "#000000",
   Primary: "#605bff",
   Secondary: "#fafafb",
+  Grey: "#b3b3bf",
   Red: "#ff6a77",
   Blue: "#5b93ff",
   CyanBlue: "#26c0e2",

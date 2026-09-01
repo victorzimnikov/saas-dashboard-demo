@@ -8,3 +8,6 @@ export type { Pagination, ErrorResponse, SuccessResponse } from "./types";
 export { Urls } from "./Urls";
 export { getNextPageParam } from "./utils";
 export { configureApiClient } from "./axiosClient";
+export { useInfiniteQuery } from "./useInfiniteQuery";
+export { useMutation } from "./useMutation";
+export { useQuery } from "./useQuery";

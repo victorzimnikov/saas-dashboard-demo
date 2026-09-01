@@ -39,7 +39,7 @@ const handleItemClick = (name: keyof RouteNamedMap) => {
           :is-open="isOpen"
           label="Dashboard"
           :title="isOpen ? undefined : 'Dashboard'"
-          @click="handleItemClick('/dashboard')"
+          @click="handleItemClick('/dashboard/')"
         >
           <CategoryIcon :class="iconClass" :color="color" />
         </SidebarItem>

@@ -1,3 +1,4 @@
 import Link from "./Link.vue";
+import Price from "./Price.vue";
 
-export { Link };
+export { Link, Price };

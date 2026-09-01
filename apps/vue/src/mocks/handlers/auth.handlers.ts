@@ -1,5 +1,5 @@
 import { delay, http, HttpResponse } from "msw";
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "./constants";
+import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../constants";
 import {
   checkJwt,
   createJwt,
@@ -18,8 +18,8 @@ import type {
 } from "@/auth";
 import { omit } from "radash";
 import { sessionStorage } from "@/storage";
-import { getTemporaryUsers } from "./helpers";
-import { createUsersMock } from "./data";
+import { getTemporaryUsers } from "../helpers";
+import { createUsersMock } from "../data";
 
 const ACCESS_TOKEN_TIME = 3600;
 const REFRESH_TOKEN_TIME = 2419200;
@@ -27,7 +27,7 @@ const REFRESH_TOKEN_TIME = 2419200;
 const users = createUsersMock();
 
 export const authHandlers = [
-  http.post<object, LoginBody, SuccessResponse<LoginResponse> | ErrorResponse>(
+  http.post<object, LoginBody, LoginResponse | ErrorResponse>(
     "/api/auth/login",
     async ({ request }) => {
       try {
@@ -126,7 +126,7 @@ export const authHandlers = [
       }
     },
   ),
-  http.post<object, RefreshTokenBody, SuccessResponse<RefreshTokenResponse> | ErrorResponse>(
+  http.post<object, RefreshTokenBody, RefreshTokenResponse | ErrorResponse>(
     "/api/auth/refresh-token",
     async ({ request }) => {
       try {

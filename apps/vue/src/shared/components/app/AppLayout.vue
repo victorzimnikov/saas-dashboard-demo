@@ -6,6 +6,8 @@ import { useAuthStore } from "@/auth";
 
 const options = reactive({
   title: "",
+  withHorizontalScroll: false,
+  withVerticalScroll: true,
 });
 
 provide(appLayoutKey, {
@@ -25,11 +27,21 @@ const authStore = useAuthStore();
       <header class="layout-header">
         <span class="header-title">{{ options.title }}</span>
 
-        <div id="app-layout-actions" />
+        <div id="app-layout-actions" class="app-layout-actions" />
       </header>
 
-      <main class="layout-content">
-        <slot></slot>
+      <main
+        :class="[
+          'layout-content',
+          {
+            'with-horizontal-scroll': options.withHorizontalScroll,
+            'with-vertical-scroll': options.withVerticalScroll,
+          },
+        ]"
+      >
+        <div class="layout-content-inner">
+          <slot></slot>
+        </div>
       </main>
     </div>
   </div>
@@ -45,6 +57,8 @@ const authStore = useAuthStore();
   & > .container {
     flex: 1;
     display: flex;
+    min-width: 0;
+    min-height: 0;
     flex-direction: column;
 
     @media (max-width: 768px) {
@@ -58,6 +72,11 @@ const authStore = useAuthStore();
       align-items: center;
       padding: 0 30px;
 
+      & > .app-layout-actions {
+        display: flex;
+        gap: 16px;
+      }
+
       & > .header-title {
         font-size: 24px;
         font-weight: 700;
@@ -67,10 +86,29 @@ const authStore = useAuthStore();
     & > .layout-content {
       flex: 1;
       display: flex;
+      min-width: 0;
+      min-height: 0;
       flex-direction: column;
-      overflow-x: hidden;
-      overflow-y: auto;
-      padding: 0 30px 30px;
+      overflow: hidden;
+      padding: 0;
+
+      & > .layout-content-inner {
+        width: max-content;
+        min-width: 100%;
+        padding: 0 30px 30px;
+
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+
+      &.with-horizontal-scroll {
+        overflow-x: auto;
+      }
+
+      &.with-vertical-scroll {
+        overflow-y: auto;
+      }
     }
   }
 }

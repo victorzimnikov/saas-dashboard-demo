@@ -14,11 +14,23 @@ import MessagesIcon from "./MessagesIcon.vue";
 import NotificationIcon from "./NotificationIcon.vue";
 import GearIcon from "./GearIcon.vue";
 import LogoutIcon from "./LogoutIcon.vue";
+import HeartIcon from "./HeartIcon.vue";
+import GameIcon from "./GameIcon.vue";
+import BagIcon from "./BagIcon.vue";
+import WorkIcon from "./WorkIcon.vue";
+import MoreIcon from "./MoreIcon.vue";
+import StarIcon from "./StarIcon.vue";
 
 export {
   AppIcon,
+  BagIcon,
+  StarIcon,
+  MoreIcon,
+  WorkIcon,
   GearIcon,
+  GameIcon,
   CheckIcon,
+  HeartIcon,
   ChartIcon,
   LogoutIcon,
   TicketIcon,
