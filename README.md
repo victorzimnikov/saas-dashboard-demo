@@ -2,6 +2,10 @@
 
 Monorepo for dashboard implementations in different frontend frameworks.
 
+### Preview
+
+[Vue](https://victorzimnikov.github.io/saas-dashboard-demo/vue/#/)
+
 ## Structure
 
 ```text

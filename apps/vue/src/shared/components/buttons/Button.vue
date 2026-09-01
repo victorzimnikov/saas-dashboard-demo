@@ -32,6 +32,7 @@ const progressColor = variant === "primary" ? ColorPalette.White : ColorPalette.
 <style lang="scss" scoped>
 .button {
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
   padding: 14px;

@@ -12,16 +12,13 @@ import { GaugeChart, LineChart, ScatterChart } from "echarts/charts";
 import { CanvasRenderer } from "echarts/renderers";
 import { use } from "echarts/core";
 import { GridComponent, TooltipComponent } from "echarts/components";
+import { enableApiMocking } from "@saas-dashboard/mocks/browser";
 
-if (import.meta.env.VITE_ENABLE_MOCKS === "true") {
-  const { enableApiMocking } = await import("@saas-dashboard/mocks/browser");
-
-  await enableApiMocking({
-    baseUrl: import.meta.env.BASE_URL,
-    accessTokenSecret: import.meta.env.VITE_ACCESS_TOKEN_KEY,
-    refreshTokenSecret: import.meta.env.VITE_REFRESH_TOKEN_KEY,
-  });
-}
+await enableApiMocking({
+  baseUrl: import.meta.env.BASE_URL,
+  accessTokenSecret: import.meta.env.VITE_ACCESS_TOKEN_KEY,
+  refreshTokenSecret: import.meta.env.VITE_REFRESH_TOKEN_KEY,
+});
 
 const app = createApp(App);
 const pinia = createPinia();
