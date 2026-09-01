@@ -1,9 +1,12 @@
 import { delay, http, HttpResponse } from "msw";
-import type { ErrorResponse } from "@/queries";
-import type { TopSellingProductsResponse } from "@/types";
+import type { TopSellingProductsResponse, ErrorResponse } from "@saas-dashboard/contracts";
 import { createTopSellingProductsMock } from "../data";
 
-export const productsHandlers = [
+export type ProductMockOptions = {
+  baseUrl: string;
+};
+
+export const createProductHandlers = ({ baseUrl }: ProductMockOptions) => [
   http.get<object, object, TopSellingProductsResponse | ErrorResponse>(
     "/api/products/top-selling",
     async () => {
@@ -11,7 +14,7 @@ export const productsHandlers = [
         await delay(550);
 
         return HttpResponse.json({
-          data: createTopSellingProductsMock(),
+          data: createTopSellingProductsMock(baseUrl),
         });
       } catch (e) {
         if (e instanceof HttpResponse) {

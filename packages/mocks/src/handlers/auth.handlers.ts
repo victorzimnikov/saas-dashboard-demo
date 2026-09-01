@@ -1,5 +1,4 @@
 import { delay, http, HttpResponse } from "msw";
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../constants";
 import {
   checkJwt,
   createJwt,
@@ -7,26 +6,32 @@ import {
   hashPassword,
   tryJsonStringify,
   verifyPassword,
-} from "@/utils";
-import type { ErrorResponse, SuccessResponse } from "@/queries";
+} from "@saas-dashboard/utils";
+import { omit } from "radash";
+import { sessionStorage } from "@saas-dashboard/storage";
+import { getTemporaryUsers } from "../helpers";
+import { createUsersMock } from "../data";
 import type {
+  ErrorResponse,
   LoginBody,
   LoginResponse,
   RefreshTokenBody,
   RefreshTokenResponse,
   RegisterBody,
-} from "@/auth";
-import { omit } from "radash";
-import { sessionStorage } from "@/storage";
-import { getTemporaryUsers } from "../helpers";
-import { createUsersMock } from "../data";
+  SuccessResponse,
+} from "@saas-dashboard/contracts";
 
 const ACCESS_TOKEN_TIME = 3600;
 const REFRESH_TOKEN_TIME = 2419200;
 
+export type AuthMockOptions = {
+  accessTokenSecret: string;
+  refreshTokenSecret: string;
+};
+
 const users = createUsersMock();
 
-export const authHandlers = [
+export const createAuthHandlers = ({ accessTokenSecret, refreshTokenSecret }: AuthMockOptions) => [
   http.post<object, LoginBody, LoginResponse | ErrorResponse>(
     "/api/auth/login",
     async ({ request }) => {
@@ -54,9 +59,9 @@ export const authHandlers = [
 
         const tokenPayload = { sub: user.id, role: user.role };
 
-        const accessToken = await createJwt(tokenPayload, ACCESS_TOKEN_TIME, ACCESS_TOKEN_KEY);
+        const accessToken = await createJwt(tokenPayload, ACCESS_TOKEN_TIME, accessTokenSecret);
 
-        const refreshToken = await createJwt(tokenPayload, REFRESH_TOKEN_TIME, REFRESH_TOKEN_KEY);
+        const refreshToken = await createJwt(tokenPayload, REFRESH_TOKEN_TIME, refreshTokenSecret);
 
         return HttpResponse.json({
           data: {
@@ -138,7 +143,7 @@ export const authHandlers = [
           return HttpResponse.json({ error: "Не передан `refreshToken`" }, { status: 400 });
         }
 
-        const isValidToken = await checkJwt(body.refreshToken, REFRESH_TOKEN_KEY);
+        const isValidToken = await checkJwt(body.refreshToken, refreshTokenSecret);
 
         if (!isValidToken) {
           return HttpResponse.json(
@@ -157,9 +162,9 @@ export const authHandlers = [
 
         const tokenPayload = { sub, role };
 
-        const accessToken = await createJwt(tokenPayload, 3600, ACCESS_TOKEN_KEY);
+        const accessToken = await createJwt(tokenPayload, 3600, accessTokenSecret);
 
-        const refreshToken = await createJwt(tokenPayload, REFRESH_TOKEN_TIME, REFRESH_TOKEN_KEY);
+        const refreshToken = await createJwt(tokenPayload, REFRESH_TOKEN_TIME, refreshTokenSecret);
 
         return HttpResponse.json({
           data: {

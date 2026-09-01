@@ -1,17 +1,22 @@
 import { QueryError, authFetcher, Urls } from "../queries";
-import type { SuccessResponse } from "../queries";
 import { defineStore } from "pinia";
+import { decodeJwt, isTokenExpired, tryJsonParse, tryJsonStringify } from "@saas-dashboard/utils";
+import { useProfileStore } from "../profile";
+import { localStorage } from "@saas-dashboard/storage";
+import type {
+  SuccessResponse,
+  LoginBody,
+  LoginResponse,
+  RefreshTokenResponse,
+  RegisterBody,
+} from "@saas-dashboard/contracts";
 import {
   loginBodySchema,
   loginResponseSchema,
   refreshTokenBodySchema,
   refreshTokenResponseSchema,
   registerBodySchema,
-} from "./auth.schema";
-import type { LoginBody, LoginResponse, RefreshTokenResponse, RegisterBody } from "./auth.schema";
-import { decodeJwt, isTokenExpired, tryJsonParse, tryJsonStringify } from "../utils";
-import { useProfileStore } from "../profile";
-import { localStorage } from "../storage";
+} from "@saas-dashboard/contracts";
 
 const STORE_NAME = "AUTH";
 const REFRESH_BUFFER_SECONDS = 10 * 60;

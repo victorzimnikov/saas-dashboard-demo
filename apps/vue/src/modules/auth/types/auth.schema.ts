@@ -1,4 +1,4 @@
-import { loginBodySchema, registerBodySchema } from "@/auth";
+import { loginBodySchema, registerBodySchema } from "@saas-dashboard/contracts";
 import z from "zod";
 
 export const loginFormSchema = loginBodySchema;

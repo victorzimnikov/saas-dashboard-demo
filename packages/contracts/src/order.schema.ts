@@ -1,6 +1,6 @@
 import z from "zod";
 import { productSchema } from "./product.schema";
-import { paginationSchema } from "@/queries";
+import { paginationSchema } from "./common.schema";
 
 const orderSchema = z.object({
   id: z.string(),

@@ -1,4 +1,4 @@
-import type { Pagination } from "./types/common.schema";
+import type { Pagination } from "@saas-dashboard/contracts";
 import { create } from "axios";
 import type { AxiosInstance } from "axios";
 

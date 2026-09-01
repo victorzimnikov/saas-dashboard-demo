@@ -32,5 +32,9 @@ const sales = [
   display: flex;
   flex-direction: column;
   padding: 24px 0 24px 24px;
+
+  & > :deep(.card-header) {
+    padding-right: 24px;
+  }
 }
 </style>

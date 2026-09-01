@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { alpha } from "@/utils";
+import { alpha } from "@saas-dashboard/utils";
 import { MoreIcon } from "../icons";
 import ButtonBase from "./ButtonBase.vue";
 import { ColorPalette } from "@/constants";

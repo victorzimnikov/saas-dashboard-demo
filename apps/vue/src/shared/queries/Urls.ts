@@ -1,6 +1,6 @@
 import { API_HOST } from "@/constants";
 import { createUrl } from "./helpers";
-import type { RecentOrdersRequest } from "@/types";
+import type { RecentOrdersRequest } from "@saas-dashboard/contracts";
 
 export const Urls = {
   // Auth

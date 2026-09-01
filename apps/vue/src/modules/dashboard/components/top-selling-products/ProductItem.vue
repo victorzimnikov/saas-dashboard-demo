@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ButtonBase, Price, Rating } from "@/components";
-import type { Product } from "@/types";
+import type { Product } from "@saas-dashboard/contracts";
 
 type Props = {
   item: Product;

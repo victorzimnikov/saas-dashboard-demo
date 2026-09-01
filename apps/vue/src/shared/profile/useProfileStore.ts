@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import type { User, UserRole } from "./common.schema";
+import type { User, UserRole } from "@saas-dashboard/contracts";
 
 const STORE_NAME = "PROFILE";
 

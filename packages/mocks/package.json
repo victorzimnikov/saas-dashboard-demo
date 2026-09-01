@@ -1,0 +1,24 @@
+{
+  "name": "@saas-dashboard/mocks",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./browser": "./src/browser.ts",
+    "./handlers": "./src/handlers/index.ts",
+    "./data": "./src/data/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@saas-dashboard/contracts": "workspace:*",
+    "@saas-dashboard/utils": "workspace:*",
+    "@saas-dashboard/storage": "workspace:*",
+    "msw": "^2.15.0",
+    "radash": "^12.1.1"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.2"
+  }
+}

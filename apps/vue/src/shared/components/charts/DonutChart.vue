@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ColorPalette } from "@/constants";
-import { alpha } from "@/utils";
+import { alpha } from "@saas-dashboard/utils";
 import { computed } from "vue";
 import VChart from "vue-echarts";
 

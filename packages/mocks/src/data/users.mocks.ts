@@ -1,4 +1,4 @@
-import type { UserWithCredentials } from "@/types";
+import type { UserWithCredentials } from "@saas-dashboard/contracts";
 
 export const createUsersMock = (): UserWithCredentials[] => [
   {

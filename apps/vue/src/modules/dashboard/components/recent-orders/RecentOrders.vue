@@ -3,7 +3,7 @@ import { computed, h } from "vue";
 import { useRecentOrdersQuery } from "../../api/index.ts";
 import DashboardCard from "../DashboardCard.vue";
 import { Price, Table } from "@/components";
-import type { Order } from "@/types";
+import type { Order } from "@saas-dashboard/contracts";
 import ProductNameCell from "./ProductNameCell.vue";
 import TotalOrderCell from "./TotalOrderCell.vue";
 

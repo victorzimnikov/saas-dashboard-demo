@@ -45,6 +45,18 @@ importers:
 
   apps/vue:
     dependencies:
+      '@saas-dashboard/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
+      '@saas-dashboard/mocks':
+        specifier: workspace:*
+        version: link:../../packages/mocks
+      '@saas-dashboard/storage':
+        specifier: workspace:*
+        version: link:../../packages/storage
+      '@saas-dashboard/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       '@tanstack/vue-query':
         specifier: ^5.102.8
         version: 5.102.8(vue@3.5.41(typescript@6.0.3))
@@ -60,9 +72,6 @@ importers:
       echarts:
         specifier: ^6.1.0
         version: 6.1.0
-      msw:
-        specifier: ^2.15.0
-        version: 2.15.0(@types/node@24.13.3)(typescript@6.0.3)
       p-queue:
         specifier: ^9.3.3
         version: 9.3.3
@@ -75,9 +84,6 @@ importers:
       qs:
         specifier: ^6.15.3
         version: 6.15.3
-      radash:
-        specifier: ^12.1.1
-        version: 12.1.1
       vee-validate:
         specifier: ^4.15.1
         version: 4.15.1(vue@3.5.41(typescript@6.0.3))
@@ -118,6 +124,58 @@ importers:
       vue-tsc:
         specifier: ^3.3.11
         version: 3.3.11(typescript@6.0.3)
+
+  packages/contracts:
+    dependencies:
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+    devDependencies:
+      typescript:
+        specifier: ~6.0.2
+        version: 6.0.3
+
+  packages/mocks:
+    dependencies:
+      '@saas-dashboard/contracts':
+        specifier: workspace:*
+        version: link:../contracts
+      '@saas-dashboard/storage':
+        specifier: workspace:*
+        version: link:../storage
+      '@saas-dashboard/utils':
+        specifier: workspace:*
+        version: link:../utils
+      msw:
+        specifier: ^2.15.0
+        version: 2.15.0(@types/node@24.13.3)(typescript@6.0.3)
+      radash:
+        specifier: ^12.1.1
+        version: 12.1.1
+    devDependencies:
+      typescript:
+        specifier: ~6.0.2
+        version: 6.0.3
+
+  packages/storage:
+    dependencies:
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+    devDependencies:
+      typescript:
+        specifier: ~6.0.2
+        version: 6.0.3
+
+  packages/utils:
+    dependencies:
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+    devDependencies:
+      typescript:
+        specifier: ~6.0.2
+        version: 6.0.3
 
 packages:
 

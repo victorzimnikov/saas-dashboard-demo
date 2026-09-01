@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { noop } from "@/utils";
+import { noop } from "@saas-dashboard/utils";
 import { useLoginApi, useRegisterApi } from "../api";
 import { AuthLayout, LoginForm, RegisterForm } from "../components";
 import type { LoginFormValues, RegisterFormValues } from "../types";

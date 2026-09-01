@@ -1,5 +1,5 @@
-import type { UserWithCredentials } from "@/types";
-import { tryJsonParse } from "@/utils";
+import type { UserWithCredentials } from "@saas-dashboard/contracts";
+import { tryJsonParse } from "@saas-dashboard/utils";
 
 export const getTemporaryUsers = (): UserWithCredentials[] => {
   const usersJson = sessionStorage.getItem("demo/vuejs/users");

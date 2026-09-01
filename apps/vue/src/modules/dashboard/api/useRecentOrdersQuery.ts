@@ -1,6 +1,6 @@
 import { queryKeys, Urls, useQuery } from "@/queries";
-import { recentOrdersRequestSchema, recentOrdersResponseSchema } from "@/types";
-import type { RecentOrdersRequest, RecentOrdersResponse } from "@/types";
+import { recentOrdersRequestSchema, recentOrdersResponseSchema } from "@saas-dashboard/contracts";
+import type { RecentOrdersRequest, RecentOrdersResponse } from "@saas-dashboard/contracts";
 
 export const useRecentOrdersQuery = (query?: RecentOrdersRequest) =>
   useQuery<RecentOrdersResponse>({

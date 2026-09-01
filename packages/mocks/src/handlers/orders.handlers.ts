@@ -1,10 +1,17 @@
 import { delay, http, HttpResponse } from "msw";
-import type { ErrorResponse } from "@/queries";
-import type { RecentOrdersRequest, RecentOrdersResponse } from "@/types";
+import type {
+  RecentOrdersRequest,
+  RecentOrdersResponse,
+  ErrorResponse,
+} from "@saas-dashboard/contracts";
 import { createRecentOrdersMock } from "../data";
-import { toNotNaNNumberOr } from "@/utils";
+import { toNotNaNNumberOr } from "@saas-dashboard/utils";
 
-export const ordersHandlers = [
+export type OrderMockOptions = {
+  baseUrl: string;
+};
+
+export const createOrdersHandlers = ({ baseUrl }: OrderMockOptions) => [
   http.get<object, object, RecentOrdersResponse | ErrorResponse>(
     "/api/orders/recent-orders",
     async ({ request }) => {
@@ -18,7 +25,7 @@ export const ordersHandlers = [
         const sortBy = (url.searchParams.get("sortBy") ??
           undefined) as RecentOrdersRequest["sortBy"];
 
-        const data = createRecentOrdersMock({ skip, limit, sortBy });
+        const data = createRecentOrdersMock(baseUrl, { skip, limit, sortBy });
         const pagination = {
           skip,
           limit,

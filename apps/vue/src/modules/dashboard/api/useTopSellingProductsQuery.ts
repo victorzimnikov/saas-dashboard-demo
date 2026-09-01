@@ -1,5 +1,6 @@
 import { queryKeys, Urls, useQuery } from "@/queries";
-import { topSellingProductsResponseSchema, type TopSellingProductsResponse } from "@/types";
+import { topSellingProductsResponseSchema } from "@saas-dashboard/contracts";
+import type { TopSellingProductsResponse } from "@saas-dashboard/contracts";
 
 export const useTopSellingProductsQuery = () =>
   useQuery<TopSellingProductsResponse>({
