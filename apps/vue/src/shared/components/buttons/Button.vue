@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ColorPalette } from "@/constants";
+import { ColorPalette } from "@saas-dashboard/constants";
 import { CircularProgress } from "../common";
 import ButtonBase from "./ButtonBase.vue";
 

@@ -2,7 +2,7 @@
 import { alpha } from "@saas-dashboard/utils";
 import { MoreIcon } from "../icons";
 import ButtonBase from "./ButtonBase.vue";
-import { ColorPalette } from "@/constants";
+import { ColorPalette } from "@saas-dashboard/constants";
 </script>
 
 <template>
